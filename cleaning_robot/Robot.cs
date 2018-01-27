@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace cleaning_robot
 {
-    class Program
+    public class Robot
     {
-        static void Main(string[] args)
+        public CleaningResult Run (CleaningRequest reques)
         {
-            var myRobot = new Robot();
-            var result = myRobot.Run(new CleaningRequest());
+            return new CleaningResult();
         }
     }
 }
