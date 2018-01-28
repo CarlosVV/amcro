@@ -9,7 +9,7 @@ namespace cleaning_robot
     public class CleaningRequest
     {
         public string[][] Map { get; set; }
-        public Position  Position { get; set; }
+        public Position  Start { get; set; }
         public string[] Commands { get; set; }
         public int Battery { get; set; }
     }
