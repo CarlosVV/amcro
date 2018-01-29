@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace cleaning_robot
 {
-    public class Position : Coordinate
+    public class Coordinate
     {
-        [JsonProperty("facing", Order = 3)]       
-        public string Facing { get; set; }
+        [JsonProperty(Order = 1)]
+        public int X { get; set; }
+        [JsonProperty(Order = 2)]
+        public int Y { get; set; }
     }
 }

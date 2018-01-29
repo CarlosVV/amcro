@@ -12,7 +12,7 @@ namespace cleaning_robot
     {
         static void Main(string[] args)
         {
-            var myRobot = new Robot();
+            var myRobot = new Robot(new Battery());
             var request = new CleaningRequest();
 
             using (var source = new StreamReader(args[0]))
@@ -27,7 +27,7 @@ namespace cleaning_robot
             Console.WriteLine("Generating output file");
             using (var dest = new StreamWriter(args[1]))
             {
-                var output = JsonConvert.SerializeObject(result);
+                var output = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented);
                 dest.Write(output);
             }
 

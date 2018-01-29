@@ -11,15 +11,15 @@ namespace cleaning_robot
     {
         public CleaningResult()
         {
-            Visited = new List<Position>();
-            Cleaned = new List<Position>();
+            Visited = new List<Coordinate>();
+            Cleaned = new List<Coordinate>();
             Final = new Position();       
         }
 
         [JsonProperty("visited")]
-        public List<Position> Visited { get; set; }
+        public List<Coordinate> Visited { get; set; }
         [JsonProperty("cleaned")]
-        public List<Position> Cleaned { get; set; }
+        public List<Coordinate> Cleaned { get; set; }
         [JsonProperty("final")]
         public Position Final { get; set; }
         [JsonProperty("battery")]
