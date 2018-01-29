@@ -17,11 +17,21 @@ namespace cleaning_robot
 
             using (var source = new StreamReader(args[0]))
             {
-                var content = source.ReadToEnd();
-                request = JsonConvert.DeserializeObject<CleaningRequest>(content);
-            }               
+                var input = source.ReadToEnd();
+                request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+            }
 
+            Console.WriteLine("Executing commands");
             var result = myRobot.Run(request);
+
+            Console.WriteLine("Generating output file");
+            using (var dest = new StreamWriter(args[1]))
+            {
+                var output = JsonConvert.SerializeObject(result);
+                dest.Write(output);
+            }
+
+            Console.WriteLine("end of execution");
         }
     }
 }
