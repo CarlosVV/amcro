@@ -246,7 +246,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CleaningRobot.Lib\CleaningRobot.Lib.csproj">
+    <ProjectReference Include="..\CleaningRobot.Lib\CleaningRobot.Lib.csproj">
       <Project>{d2393d11-2820-4e37-af13-2aeca670414e}</Project>
       <Name>CleaningRobot.Lib</Name>
     </ProjectReference>

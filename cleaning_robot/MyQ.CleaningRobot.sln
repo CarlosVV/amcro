@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.Lib", "..\Cle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.Lib.Tests", "..\CleaningRobot.Lib.Tests\CleaningRobot.Lib.Tests.csproj", "{874B302D-EDC4-4C1C-B5B4-C4B5CFEF896C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.WebApi", "CleaningRobot.WebApi\CleaningRobot.WebApi.csproj", "{45900E60-6362-4918-BC5B-EF7AA263466E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.WebApi", "..\CleaningRobot.WebApi\CleaningRobot.WebApi.csproj", "{45900E60-6362-4918-BC5B-EF7AA263466E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
