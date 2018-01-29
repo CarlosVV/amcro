@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace CleaningRobot.Lib
 {
+    /// <summary>
+    /// Enum to store the cardinal points where the Robot is looking at
+    /// </summary>
     public enum Facing
     {
         N = 0, S = 1, E = 2, W = 3
     }
 
+    /// <summary>
+    /// Enum to Store Information about the available actions to execute: Turn Left (TL), Turn Right (TR), Advance (A), Back (B) a
+    /// and Clean (C). These actions will be sent in the commands array stored in the Request. 
+    /// </summary>
     public enum RobotAction
     {
         TL = 0, TR = 1, A = 2, B = 3, C = 4
     }
+
+    /// <summary>
+    /// Main Class that will run the commands supplied 
+    /// </summary>
 
     public class Robot
     {
@@ -37,8 +48,18 @@ namespace CleaningRobot.Lib
             CurrentCoordinate = new Position();
         }
 
+        /// <summary>
+        ///  Main Method to be used by passing the complete structure request with instructions
+        /// </summary>
+        /// <param name="request">Request class containing the Map, Start, Commands and Battery Status</param>
+        /// <returns></returns>
         public CleaningResult Run(CleaningRequest request)
         {
+            if (request == null)
+            {
+                return null;
+            }
+
             var result = new CleaningResult();
             Map = request.Map;
             Battery = new Battery { Status = request.Battery };

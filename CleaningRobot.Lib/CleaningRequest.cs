@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CleaningRobot.Lib
 {
+    /// <summary>
+    /// Class to server as an Input for Running the Robot Class
+    /// </summary>
     public class CleaningRequest
     {
         public string[][] Map { get; set; }

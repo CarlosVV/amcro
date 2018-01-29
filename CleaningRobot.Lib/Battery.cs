@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CleaningRobot.Lib
 {
+    /// <summary>
+    /// Class to model Robot Battery
+    /// </summary>
     public class Battery
     {
         public int Status { get; set; }

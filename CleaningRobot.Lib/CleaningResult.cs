@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CleaningRobot.Lib
 {
+    /// <summary>
+    /// Class resulting of processing the robot request
+    /// </summary>
     public class CleaningResult
     {
         public CleaningResult()

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CleaningRobot.Lib
 {
+    /// <summary>
+    /// Class to store the point (X, Y) to be examined by the robot
+    /// </summary>
     public class Coordinate
     {
         [JsonProperty(Order = 1)]
