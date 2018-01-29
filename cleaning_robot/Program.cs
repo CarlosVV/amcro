@@ -13,26 +13,66 @@ namespace cleaning_robot
     {
         static void Main(string[] args)
         {
-            var myRobot = new Robot(new Battery());
-            var request = new CleaningRequest();
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine("====================CLEANING ROBOT V1.O ===============================");
+            Console.WriteLine("=============== CARLOS VALDERRAMA (cvalderramav@gmail.com)=============");
+            Console.WriteLine();
 
-            using (var source = new StreamReader(args[0]))
+            if (args.Length < 2)
             {
-                var input = source.ReadToEnd();
-                request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You must execute this program passing 2 arguments. Example:");
+                Console.WriteLine("cleaning_robot source.json result.json");
+                Console.WriteLine("where: source.json is the input file to execute the Simulation and result.json is the output file to generate the results.");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
             }
 
-            Console.WriteLine("Executing commands");
-            var result = myRobot.Run(request);
 
-            Console.WriteLine("Generating output file");
-            using (var dest = new StreamWriter(args[1]))
+            var input_path = args[0];
+            var output_path = args[1];
+
+            if (!File.Exists(input_path))
             {
-                var output = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented);
-                dest.Write(output);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Input file {input_path} does not exist");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
             }
 
-            Console.WriteLine("End of Execution");
+            try
+            {
+                var myRobot = new Robot(new Battery());
+                var request = new CleaningRequest();
+
+                using (var source = new StreamReader(args[0]))
+                {
+                    var input = source.ReadToEnd();
+                    request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+                }
+
+                Console.WriteLine("Executing commands");
+                var result = myRobot.Run(request);
+
+                Console.WriteLine("Generating output file");
+                using (var dest = new StreamWriter(args[1]))
+                {
+                    var output = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented);
+                    dest.Write(output);
+                }               
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Unhandled Exception executing program: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"Hint: Review your input file. Possible malformed .JSON File");                
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("End of Execution");
+            }         
         }
     }
 }
