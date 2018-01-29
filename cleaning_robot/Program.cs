@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CleaningRobot.Lib;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +32,7 @@ namespace cleaning_robot
                 dest.Write(output);
             }
 
-            Console.WriteLine("end of execution");
+            Console.WriteLine("End of Execution");
         }
     }
 }
