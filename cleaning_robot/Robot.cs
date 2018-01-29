@@ -18,18 +18,18 @@ namespace cleaning_robot
 
     public class Robot
     {
-        private string[][] Map { get; set; }
+        protected string[][] Map { get; set; }
         protected List<Coordinate> Visited { get; set; } = new List<Coordinate>();
-        private List<Coordinate> Cleaned { get; set; } = new List<Coordinate>();
-        private string[][] facingActionResult { get; set; } = new string[][] { new string[2] { "W", "E" }, new string[2] { "E", "W" }, new string[2] { "N", "S" }, new string[2] { "S", "N" } };
-        private Battery Battery { get; set; }
-        private Coordinate CurrentCoordinate { get; set; }
-        private Coordinate PreviousCoordinate { get; set; }
-        private Facing CurrentFacing { get; set; }
-        private RobotAction CurrentRobotAction { get; set; }
-        private bool IsRunningObstacleBackOffStrategy { get; set; }
-        private string[][] AlternativeActions { get; set; } = new string[][] { new string[] { "TR", "A" }, new string[] { "TL", "B", "TR", "A" }, new string[] { "TL", "TL", "A" }, new string[] { "TR", "B", "TR", "A" }, new string[] { "TL", "TL", "A" } };
-        private bool IsObstacle() => (CurrentCoordinate.X < 0 || CurrentCoordinate.Y < 0 || CurrentCoordinate.X >= Map.GetLength(0) ||CurrentCoordinate.Y >= Map.GetLength(0) || Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "C" ||  Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "null" || Battery.Status - Battery.Consumption(CurrentRobotAction) < 0);
+        protected List<Coordinate> Cleaned { get; set; } = new List<Coordinate>();
+        protected string[][] facingActionResult { get; set; } = new string[][] { new string[2] { "W", "E" }, new string[2] { "E", "W" }, new string[2] { "N", "S" }, new string[2] { "S", "N" } };
+        protected Battery Battery { get; set; }
+        protected Coordinate CurrentCoordinate { get; set; }
+        protected Coordinate PreviousCoordinate { get; set; }
+        protected Facing CurrentFacing { get; set; }
+        protected RobotAction CurrentRobotAction { get; set; }
+        protected bool IsRunningObstacleBackOffStrategy { get; set; }
+        protected string[][] AlternativeActions { get; set; } = new string[][] { new string[] { "TR", "A" }, new string[] { "TL", "B", "TR", "A" }, new string[] { "TL", "TL", "A" }, new string[] { "TR", "B", "TR", "A" }, new string[] { "TL", "TL", "A" } };
+        protected bool IsObstacle() => (CurrentCoordinate.X < 0 || CurrentCoordinate.Y < 0 || CurrentCoordinate.X >= Map.GetLength(0) ||CurrentCoordinate.Y >= Map.GetLength(0) || Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "C" ||  Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "null" || Battery.Status - Battery.Consumption(CurrentRobotAction) < 0);
 
         public Robot(Battery battery)
         {
