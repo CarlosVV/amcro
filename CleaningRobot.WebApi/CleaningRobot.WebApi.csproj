@@ -244,7 +244,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CleaningRobot.Lib\CleaningRobot.Lib.csproj">
+      <Project>{D2393D11-2820-4E37-AF13-2AECA670414E}</Project>
+      <Name>CleaningRobot.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
