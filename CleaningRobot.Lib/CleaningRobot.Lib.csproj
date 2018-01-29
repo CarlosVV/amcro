@@ -53,6 +53,7 @@
     <Compile Include="Robot.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CleaningRobot.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
