@@ -33,51 +33,79 @@ namespace CleaningRobot.Lib
         /// Contains the Map used by the Robot to Clean 
         /// </summary>
         protected string[][] Map { get; set; }
+
         /// <summary>
         /// Contains the coordinates X, Y where the Robot walks
         /// </summary>
         protected List<Coordinate> Visited { get; set; } = new List<Coordinate>();
+
         /// <summary>
         /// Contains the coordinates X, Y where the cleans
         /// </summary>
         protected List<Coordinate> Cleaned { get; set; } = new List<Coordinate>();
+
         /// <summary>
         /// Contains a matrix to store the result facing when an command (Turn Left or Turn Right) is applied knowing its initial facing
         /// </summary>
-        protected string[][] FacingActionResult { get; set; } = new string[][] { new string[2] { "W", "E" }, new string[2] { "E", "W" }, new string[2] { "N", "S" }, new string[2] { "S", "N" } };
+        protected string[][] FacingActionResult { get; set; } = new string[][] {
+                                                                                    new string[2] { "W", "E" },
+                                                                                    new string[2] { "E", "W" },
+                                                                                    new string[2] { "N", "S" },
+                                                                                    new string[2] { "S", "N" } };
+
         /// <summary>
         /// Battery object that stores Status and Gets the Comsumption of Battery for each action
         /// </summary>
         protected Battery Battery { get; set; }
+
         /// <summary>
         /// Current Coordinate resulting of executing the Current Command
         /// </summary>
         protected Coordinate CurrentCoordinate { get; set; }
+
         /// <summary>
         /// Previous Coordinate used as backup when the current coordinate has an invalid value or state
         /// </summary>
         protected Coordinate PreviousCoordinate { get; set; }
+
         /// <summary>
         /// Current Facing where the Robot is looking
         /// </summary>
         protected Facing CurrentFacing { get; set; }
+
         /// <summary>
         /// Current command that is being executed
         /// </summary>
         protected RobotAction CurrentRobotAction { get; set; }
+
         /// <summary>
         /// Boolean that indicates if the Robot is running a Obstacle Backoff Strategy
         /// </summary>
         protected bool IsRunningObstacleBackOffStrategy { get; set; }
+
         /// <summary>
         /// Matrix to map the strategies commands if there are an obstacle
         /// </summary>
-        protected string[][] AlternativeActions { get; set; } = new string[][] { new string[] { "TR", "A" }, new string[] { "TL", "B", "TR", "A" }, new string[] { "TL", "TL", "A" }, new string[] { "TR", "B", "TR", "A" }, new string[] { "TL", "TL", "A" } };
+        protected string[][] AlternativeActions { get; set; } = new string[][] {
+                                                                                new string[] { "TR", "A" },
+                                                                                new string[] { "TL", "B", "TR", "A" },
+                                                                                new string[] { "TL", "TL", "A" },
+                                                                                new string[] { "TR", "B", "TR", "A" },
+                                                                                new string[] { "TL", "TL", "A" } };
+
         /// <summary>
-        /// Indicates if there an obstacle when executing the current command. An obstacle depends of Current Coordinate, Map Position X and Y and Batery Status
+        /// Indicates if there an obstacle when executing the current command. An obstacle depends of Current Coordinate, 
+        /// Map Position X and Y and Batery Status
         /// </summary>
         /// <returns></returns>
-        protected bool IsObstacle() => (CurrentCoordinate.X < 0 || CurrentCoordinate.Y < 0 || CurrentCoordinate.X >= Map.GetLength(0) ||CurrentCoordinate.Y >= Map.GetLength(0) || Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "C" ||  Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "null" || Battery.Status - Battery.Consumption(CurrentRobotAction) < 0);
+        protected bool IsObstacle() => (
+                                        CurrentCoordinate.X < 0 ||
+                                        CurrentCoordinate.Y < 0 ||
+                                        CurrentCoordinate.X >= Map.GetLength(0) ||
+                                        CurrentCoordinate.Y >= Map.GetLength(0) ||
+                                        Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "C" ||
+                                        Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "null" ||
+                                        Battery.Status - Battery.Consumption(CurrentRobotAction) < 0);
 
         public Robot(Battery battery)
         {
@@ -92,7 +120,7 @@ namespace CleaningRobot.Lib
         /// <returns></returns>
         public CleaningResult Run(CleaningRequest request)
         {
-            if (request == null)
+            if (IsValidRequest(request))
             {
                 return null;
             }
@@ -149,6 +177,17 @@ namespace CleaningRobot.Lib
 
             return result;
         }
+
+        private bool IsValidRequest(CleaningRequest request)
+        {
+            return
+                request == null || request.Battery == 0 ||
+                request.Commands == null || request.Commands.Length == 0 ||
+                request.Commands.Any(m => string.IsNullOrWhiteSpace(m)) ||
+                !request.Commands.Any(m => (new string[] { "TR", "TL", "A", "B", "C" }).Contains(m)) ||
+                request.Map == null || request.Start == null;
+        }
+
         private void ExecuteCommand()
         {
             if (Battery.Status - Battery.Consumption(CurrentRobotAction) < 0)
