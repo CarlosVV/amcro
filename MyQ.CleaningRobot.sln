@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.Lib", "Cleani
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.Lib.Tests", "CleaningRobot.Lib.Tests\CleaningRobot.Lib.Tests.csproj", "{874B302D-EDC4-4C1C-B5B4-C4B5CFEF896C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.Console", "CleaningRobot.Console\CleaningRobot.Console.csproj", "{33A08C9D-48B0-4DB5-985A-7D84866C9CD4}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot.WebApi", "CleaningRobot.WebApi\CleaningRobot.WebApi.csproj", "{2E18870F-88F6-4202-8791-EAEA0C9C894C}"
 EndProject
 Global
@@ -23,6 +25,10 @@ Global
 		{874B302D-EDC4-4C1C-B5B4-C4B5CFEF896C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{874B302D-EDC4-4C1C-B5B4-C4B5CFEF896C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{874B302D-EDC4-4C1C-B5B4-C4B5CFEF896C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33A08C9D-48B0-4DB5-985A-7D84866C9CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A08C9D-48B0-4DB5-985A-7D84866C9CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A08C9D-48B0-4DB5-985A-7D84866C9CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A08C9D-48B0-4DB5-985A-7D84866C9CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E18870F-88F6-4202-8791-EAEA0C9C894C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E18870F-88F6-4202-8791-EAEA0C9C894C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E18870F-88F6-4202-8791-EAEA0C9C894C}.Release|Any CPU.ActiveCfg = Release|Any CPU
