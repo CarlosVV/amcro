@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery.cs" />
+    <Compile Include="CardinalPoint.cs" />
     <Compile Include="CleaningRequest.cs" />
     <Compile Include="CleaningResult.cs" />
     <Compile Include="Coordinate.cs" />
