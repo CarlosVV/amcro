@@ -86,7 +86,69 @@ namespace CleaningRobot.Lib.Tests
 
             Assert.AreEqual(result.Battery, 54);
         }
+        public void Test_Run_Sample_01_05_Map_Null()
+        {
+            var myRobot = new Robot(new Battery());
+            var request = new CleaningRequest();
 
+            var input = "{ \"map\": [[ \"S\", \"S\", \"S\", \"S\" ], [ \"S\", \"S\", \"C\", \"S\" ],[ \"S\", \"S\", \"S\", \"S\" ],[ \"S\", \"null\", \"S\", \"S\" ]],\"start\": {\"X\": 3, \"Y\": 0, \"facing\": \"N\" }, \"commands\": [ \"TL\", \"A\", \"C\", \"A\", \"C\", \"TR\", \"A\", \"C\" ],\"battery\":  80 }";
+            
+            request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+
+            request.Map = null;
+
+            var result = myRobot.Run(request);
+
+            Assert.IsNull(result);
+        }
+
+        public void Test_Run_Sample_01_05_Map_Null_2()
+        {
+            var myRobot = new Robot(new Battery());
+            var request = new CleaningRequest();
+
+            var input = "{ \"map\": [[ \"S\", \"S\", \"S\", \"S\" ], [ \"S\", \"S\", \"C\", \"S\" ],[ \"S\", \"S\", \"S\", \"S\" ],[ \"S\", \"null\", \"S\", \"S\" ]],\"start\": {\"X\": 3, \"Y\": 0, \"facing\": \"N\" }, \"commands\": [ \"TL\", \"A\", \"C\", \"A\", \"C\", \"TR\", \"A\", \"C\" ],\"battery\":  80 }";
+
+            request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+
+            request.Map[0] = null;
+
+            var result = myRobot.Run(request);
+
+            Assert.IsNull(result);
+        }
+
+        public void Test_Run_Sample_01_05_Map_Null_3()
+        {
+            var myRobot = new Robot(new Battery());
+            var request = new CleaningRequest();
+
+            var input = "{ \"map\": [[ \"S\", \"S\", \"S\", \"S\" ], [ \"S\", \"S\", \"C\", \"S\" ],[ \"S\", \"S\", \"S\", \"S\" ],[ \"S\", \"null\", \"S\", \"S\" ]],\"start\": {\"X\": 3, \"Y\": 0, \"facing\": \"N\" }, \"commands\": [ \"TL\", \"A\", \"C\", \"A\", \"C\", \"TR\", \"A\", \"C\" ],\"battery\":  80 }";
+
+            request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+
+            request.Map[0] = new[] { "X" };
+
+            var result = myRobot.Run(request);
+
+            Assert.IsNull(result);
+        }
+
+        public void Test_Run_Sample_01_05_Map_Not_Valid()
+        {
+            var myRobot = new Robot(new Battery());
+            var request = new CleaningRequest();
+
+            var input = "{ \"map\": [[ \"S\", \"S\", \"S\", \"S\" ], [ \"S\", \"S\", \"C\", \"S\" ],[ \"S\", \"S\", \"S\", \"S\" ],[ \"S\", \"null\", \"S\", \"S\" ]],\"start\": {\"X\": 3, \"Y\": 0, \"facing\": \"N\" }, \"commands\": [ \"TL\", \"A\", \"C\", \"A\", \"C\", \"TR\", \"A\", \"C\" ],\"battery\":  80 }";
+
+            request = JsonConvert.DeserializeObject<CleaningRequest>(input);
+
+            request.Map[0] = new[] { "a", "b", "A", "A" };
+
+            var result = myRobot.Run(request);
+
+            Assert.IsNull(result);
+        }
 
         [TestMethod()]
         public void Test_Run_Sample_02_00_Basic()

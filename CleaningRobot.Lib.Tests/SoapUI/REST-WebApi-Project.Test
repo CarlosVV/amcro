@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bfb7d3db-8cc3-45f2-bf02-1dd58e8be8d2" activeEnvironment="Default" name="REST Robot Web Api" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="97af3145-a814-4df6-8ee0-b72c1b5efc02" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:49275" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:49275</con:endpoint></con:endpoints><con:resource name="Clean" path="/robot/clean" id="ce8f85f8-9e07-4ffe-bc02-2570e83f3728"><con:settings/><con:parameters/><con:method name="Method Post Clean" id="8654dba2-744a-4a8d-9513-98699c3d2164" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cle="http://localhost/robot/clean">cle:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Sample 1" id="a024831f-5e41-4eeb-9270-ba4830f8089d" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:49275</con:endpoint><con:request>{
+  "map": [
+    [ "S", "S", "S", "S" ],
+    [ "S", "S", "C", "S" ],
+    [ "S", "S", "S", "S" ],
+    [ "S", "null", "S", "S" ]
+  ],
+  "start": {
+    "X": 3,
+    "Y": 0,
+    "facing": "N"
+  },
+  "commands": [ "TL", "A", "C", "A", "C", "TR", "A", "C" ],
+  "battery":  80
+}
+</con:request><con:originalUri>http://localhost/robot/clean</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sample 2" id="a024831f-5e41-4eeb-9270-ba4830f8089d" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:49275</con:endpoint><con:request>{
+  "map": [
+    ["S", "S", "S", "S"],
+    ["S", "S", "C", "S"],
+    ["S", "S", "S", "S"],
+    ["S", "null", "S", "S"]
+  ],
+  "start": {"X": 3, "Y": 1, "facing": "S"},
+  "commands": [ "TR","A","C","A","C","TR","A","C"],
+  "battery": 1094
+}</con:request><con:originalUri>http://localhost/robot/clean</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sample 3" id="e68cb82d-bf71-4cda-a9a6-b41fe54f087e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:49275</con:endpoint><con:request>{
+  "map": [
+    ["S"],
+    ["S", "S", "C", "S"],
+    ["S", "S", "S", "S"],
+    ["S", "null", "S", "S"]
+  ],
+  "start": {"X": 3, "Y": 1, "facing": "S"},
+  "commands": [ "TR","A","C","A","C","TR","A","C"],
+  "battery": 1094
+}</con:request><con:originalUri>http://localhost/robot/clean</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="Sample 4" id="e68cb82d-bf71-4cda-a9a6-b41fe54f087e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:49275</con:endpoint><con:request>{
+  "map": [
+    ["null"],
+    ["null", "null", "null", "null"],
+    ["S", "S", "S", "S"],
+    ["S", "null", "S", "S"]
+  ],
+  "start": {"X": 3, "Y": 1, "facing": "S"},
+  "commands": [ "TR","A","C","A","C","TR","A","C"],
+  "battery": 1094
+}</con:request><con:originalUri>http://localhost/robot/clean</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

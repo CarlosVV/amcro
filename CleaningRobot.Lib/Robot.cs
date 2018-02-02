@@ -103,6 +103,7 @@ namespace CleaningRobot.Lib
                                         CurrentCoordinate.Y < 0 ||
                                         CurrentCoordinate.X >= Map.GetLength(0) ||
                                         CurrentCoordinate.Y >= Map.GetLength(0) ||
+                                        CurrentCoordinate.X > Map[CurrentCoordinate.Y].Length ||
                                         Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "C" ||
                                         Map[CurrentCoordinate.Y][CurrentCoordinate.X] == "null" ||
                                         Battery.Status - Battery.Consumption(CurrentRobotAction) < 0);
@@ -164,7 +165,7 @@ namespace CleaningRobot.Lib
 
                         alternativeIndex++;
                     }
-                    while (IsRunningObstacleBackOffStrategy || alternativeIndex <= AlternativeActions.GetLength(0));
+                    while (IsRunningObstacleBackOffStrategy && alternativeIndex < AlternativeActions.GetLength(0));
 
                     IsRunningObstacleBackOffStrategy = false;
                 }
